@@ -1,0 +1,3 @@
+diffusers==0.16.1
+fastapi==0.95.1
+torch==2.0.0
