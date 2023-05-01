@@ -2,7 +2,7 @@
 
 ### - install dependencies for requirements.txt
 
-### - create auth_token.py with api key from hugging face (to use pretrained models from hugging face)
+### - create .env file used in auth_token.py with api key from hugging face (to use pretrained models from hugging face)
 
 ### - api.py has been optimised for macs using mac silicon (device="mps" & enable_attention_slicing() for low ram devices)
 
@@ -18,4 +18,4 @@
 
 ### Sample Image: ![generated image](result.png)
 
-    Prompt Used: "monkey cyberpunk rockstar uhd"
+    Prompt Used: "superheroes andywarhol jumping hd"
