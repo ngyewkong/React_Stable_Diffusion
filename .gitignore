@@ -29,3 +29,5 @@ node_modules
 api/.env
 
 .vscode/
+
+api/vercel.json
