@@ -1,8 +1,3 @@
-
-api/__pycache__/api.cpython-39.pyc
-
-api/__pycache__/auth_token.cpython-39.pyc
-
 # client depdencies
 client/node_modules
 client/.pnp
@@ -30,5 +25,4 @@ api/.env
 
 .vscode/
 
-api/vercel.json
-api/__pycache__/main.cpython-39.pyc
+api/__pycache__/*
