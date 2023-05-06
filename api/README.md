@@ -18,4 +18,4 @@
 
 ### Sample Image: ![generated image](result.png)
 
-    Prompt Used: "harry potter playing basketball hd"
+    Prompt Used: "harry potter playing basketball oil canvas"
