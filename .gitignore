@@ -31,3 +31,4 @@ api/.env
 .vscode/
 
 api/vercel.json
+api/__pycache__/main.cpython-39.pyc
