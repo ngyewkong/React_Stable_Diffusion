@@ -18,4 +18,4 @@
 
 ### Sample Image: ![generated image](result.png)
 
-    Prompt Used: "superheroes andywarhol jumping hd"
+    Prompt Used: "harry potter playing basketball hd"
