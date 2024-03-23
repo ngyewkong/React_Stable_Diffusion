@@ -23,10 +23,10 @@ app.add_middleware(  # add the middleware
 )
 
 # import stable diffusion
-device = "mps"
+device = "mps"  # to use nvidia gpu -> device = "cuda" to use macbook gpu -> device = "mps"
 model_id = "runwayml/stable-diffusion-v1-5"
 pipe = DiffusionPipeline.from_pretrained(model_id, use_auth_token=auth_token)
-pipe.to(device)  # use the gpu (mac silicon)
+pipe.to(device)
 pipe.enable_attention_slicing()  # enable attention slicing for less than 64gb ram
 
 

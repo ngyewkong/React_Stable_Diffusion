@@ -15,13 +15,21 @@ import {
   Box,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   // state to manage image & prompt
   const [image, setImage] = useState(null);
   const [prompt, setPrompt] = useState(null);
   const [loading, setLoading] = useState();
+  const [shouldGenerate, setShouldGenerate] = useState(false);
+
+  useEffect(() => {
+    if (shouldGenerate) {
+      generate(prompt);
+      setShouldGenerate(false);
+    }
+  }, [prompt, shouldGenerate]);
 
   const generate = async (prompt) => {
     setLoading(true);
@@ -29,9 +37,18 @@ function App() {
       prompt = await axios.get("http://localhost:8000/random");
       setPrompt(prompt.data);
     }
+    // for using deployed api on huggingface
+    // prompt = await axios.get(
+    //   "https://ngyewkong-stable-diffusion-api.hf.space/api/v1/stable-diffusion-api/random"
+    // );
+    const promptStr = prompt.toString();
     const response = await axios.get(
-      `http://localhost:8000/generate?prompt=${prompt}`
+      `http://localhost:8000/generate?prompt=${promptStr}`
     );
+    // for using deployed api on huggingface
+    // await axios.get(
+    //   `https://ngyewkong-stable-diffusion-api.hf.space/api/v1/stable-diffusion-api/generate?prompt=${prompt}`
+    // );
     setImage(response.data);
     setLoading(false);
   };
@@ -67,7 +84,7 @@ function App() {
             colorScheme="green"
             onClick={(e) => {
               setPrompt(document.getElementsByTagName("input")[0].value);
-              generate(prompt);
+              setShouldGenerate(true);
               clearInput();
             }}
           >
@@ -76,7 +93,8 @@ function App() {
           <Button
             colorScheme="red"
             onClick={(e) => {
-              generate(null);
+              setPrompt(null);
+              setShouldGenerate(true);
               clearInput();
             }}
           >
